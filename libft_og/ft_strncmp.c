@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/08 12:14:31 by aldiaz-u          #+#    #+#             */
-/*   Updated: 2025/04/09 17:42:56 by aldiaz-u         ###   ########.fr       */
+/*   Created: 2025/04/09 09:09:08 by aldiaz-u          #+#    #+#             */
+/*   Updated: 2025/04/09 16:04:28 by aldiaz-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t	count;
-
-	count = 0;
-	while (*s)
+	while (*s1 && *s2)
 	{
-		s++;
-		count++;
+		return (s1[n - 1] - s2[n - 1]);
+		s1++;
+		s2++;
 	}
-	return (count);
+	return (s1[0] - s2[0]);
 }

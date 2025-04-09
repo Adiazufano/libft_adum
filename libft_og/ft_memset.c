@@ -6,13 +6,15 @@
 /*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 12:27:50 by aldiaz-u          #+#    #+#             */
-/*   Updated: 2025/04/08 17:48:47 by aldiaz-u         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:00:05 by aldiaz-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memset(void *s, int c, unsigned long n)
+#include "libft.h"
+
+void	*ft_memset(void *s, int c, size_t n)
 {
-	unsigned long	i;
+	size_t			i;
 	unsigned char	*ptr;
 
 	ptr = (unsigned char *)s;

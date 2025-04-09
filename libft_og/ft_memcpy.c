@@ -6,13 +6,15 @@
 /*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 14:12:03 by aldiaz-u          #+#    #+#             */
-/*   Updated: 2025/04/08 17:48:14 by aldiaz-u         ###   ########.fr       */
+/*   Updated: 2025/04/09 15:56:36 by aldiaz-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memcpy(void *dest, const void *src, unsigned long n)
+#include "libft.h"
+
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	unsigned long		i;
+	size_t				i;
 	unsigned char		*d;
 	const unsigned char	*s;
 

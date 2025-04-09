@@ -1,33 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memove.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/08 15:49:58 by aldiaz-u          #+#    #+#             */
-/*   Updated: 2025/04/09 16:00:45 by aldiaz-u         ###   ########.fr       */
+/*   Created: 2025/04/09 16:30:49 by aldiaz-u          #+#    #+#             */
+/*   Updated: 2025/04/09 17:42:13 by aldiaz-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+char	*ft_strdup(const char *s)
 {
-	unsigned char	temp[20];
-	size_t			i;
+	char	*array;
+	int		len;
+	int		i;
 
+	
+	len = ft_strlen(s) + 1;
+	array = (char *)malloc(len * sizeof(char));
 	i = 0;
-	while (i < n)
+	if (!array)
+		return (NULL);
+	while (i < len)
 	{
-		temp[i] = ((unsigned char *) src)[i];
+		array[i] = s[i];
 		i++;
 	}
-	i = 0;
-	while (i < n)
+	array[i] = '\0';
+	return (array);
+}
+
+int	main()
+{
+	char *test = ft_strdup("hola que tal ?");
+	if (!test) 
 	{
-		((unsigned char *) dest)[i] = temp[i];
-		i++;
+		printf("Error al duplicar la cadena.\n");
+		return (1);
 	}
-	return (dest);
+	
+	printf("%s\n", test); 
+	
+	free(test); 
+	return (0);
 }

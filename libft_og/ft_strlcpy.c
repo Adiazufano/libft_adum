@@ -6,14 +6,16 @@
 /*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 17:08:00 by aldiaz-u          #+#    #+#             */
-/*   Updated: 2025/04/08 17:22:02 by aldiaz-u         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:37:01 by aldiaz-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+#include "libft.h"
+
+size_t	ft_strlcpy(char *dest, char *src, size_t size)
 {
-	unsigned int	l;
-	unsigned int	i;
+	size_t	l;
+	size_t	i;
 
 	i = 0;
 	l = 0;
