@@ -6,7 +6,7 @@
 /*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 16:30:49 by aldiaz-u          #+#    #+#             */
-/*   Updated: 2025/04/09 17:42:13 by aldiaz-u         ###   ########.fr       */
+/*   Updated: 2025/04/10 08:33:29 by aldiaz-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ char	*ft_strdup(const char *s)
 	int		len;
 	int		i;
 
-	
 	len = ft_strlen(s) + 1;
 	array = (char *)malloc(len * sizeof(char));
 	i = 0;
@@ -31,19 +30,4 @@ char	*ft_strdup(const char *s)
 	}
 	array[i] = '\0';
 	return (array);
-}
-
-int	main()
-{
-	char *test = ft_strdup("hola que tal ?");
-	if (!test) 
-	{
-		printf("Error al duplicar la cadena.\n");
-		return (1);
-	}
-	
-	printf("%s\n", test); 
-	
-	free(test); 
-	return (0);
 }

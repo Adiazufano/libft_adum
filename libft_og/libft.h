@@ -6,7 +6,7 @@
 /*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 18:01:16 by aldiaz-u          #+#    #+#             */
-/*   Updated: 2025/04/09 17:38:22 by aldiaz-u         ###   ########.fr       */
+/*   Updated: 2025/04/10 09:28:24 by aldiaz-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,6 @@ int				ft_memcmp(const void *s1, const void *s2, size_t n);
 char			*ft_strnstr(char *big, char *little, size_t n);
 int				ft_atoi(const char *nptr);
 void			*ft_calloc(size_t nmaeb, size_t size);
+char			*ft_substr(char const *s, unsigned int start, size_t len);
+char			*ft_strjoin(char const *s1, char const *s2);
 #endif

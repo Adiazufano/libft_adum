@@ -1,33 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memove.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/08 15:49:58 by aldiaz-u          #+#    #+#             */
-/*   Updated: 2025/04/10 16:19:48 by aldiaz-u         ###   ########.fr       */
+/*   Created: 2025/04/10 08:51:00 by aldiaz-u          #+#    #+#             */
+/*   Updated: 2025/04/10 09:45:53 by aldiaz-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	unsigned char	*d = (unsigned char *)dest;
-	const unsigned char *s = (const unsigned char *)src;
+	char	*join;
+	size_t	len_s1;
+	size_t	len_s2;
+	char	*temp;
 
-	if (d == s || n == 0)
-		return (dest);
-	if(d > s && d < s + n)
+	len_s1 = ft_strlen(s1);
+	len_s2 = ft_strlen(s2);
+	join = (char *)malloc((len_s1 + len_s2) * sizeof(char));
+	temp = join;
+	if (!join)
+		return (NULL);
+	while (*s1)
 	{
-		while(n--)
-			d[n] = s[n];
+		*temp = *s1;
+		temp++;
+		s1++;
 	}
-	else
+	while (*s2)
 	{
-		while (n--)
-			*d++ = *s++;
+		*temp = *s2;
+		temp++;
+		s2++;
 	}
-	return (dest);
+	return (join);
 }

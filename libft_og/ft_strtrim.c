@@ -1,33 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memove.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/08 15:49:58 by aldiaz-u          #+#    #+#             */
-/*   Updated: 2025/04/10 16:19:48 by aldiaz-u         ###   ########.fr       */
+/*   Created: 2025/04/10 09:34:59 by aldiaz-u          #+#    #+#             */
+/*   Updated: 2025/04/10 16:36:49 by aldiaz-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	unsigned char	*d = (unsigned char *)dest;
-	const unsigned char *s = (const unsigned char *)src;
+	char	*trim;
+	char	*temp;
+	int	j;
 
-	if (d == s || n == 0)
-		return (dest);
-	if(d > s && d < s + n)
+	trim = (char *)malloc((int)ft_strlen(s1) * sizeof(char));
+	temp = trim;
+	j = ft_strlen(s1);
+
+	while (j-- && s1[j] == 'h')
 	{
-		while(n--)
-			d[n] = s[n];
+		temp[j] = s1[j];
+		j--;
 	}
-	else
+	while (*s1)
 	{
-		while (n--)
-			*d++ = *s++;
+		*temp++ = *s1++;
 	}
-	return (dest);
+	return (trim);
+}
+
+int	main(void)
+{
+	char	s1[] = "hola qhue tal?h";
+	char	set[] = "paclh";
+	char	*trim = ft_strtrim(s1,set);
+
+	printf("%s",trim);
+	free(trim);
+	return (0);
 }
