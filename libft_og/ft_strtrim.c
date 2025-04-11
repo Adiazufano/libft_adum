@@ -6,7 +6,7 @@
 /*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 09:34:59 by aldiaz-u          #+#    #+#             */
-/*   Updated: 2025/04/10 16:36:49 by aldiaz-u         ###   ########.fr       */
+/*   Updated: 2025/04/11 13:31:38 by aldiaz-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,20 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*trim;
-	char	*temp;
-	int	j;
+	char	*arr;
+	size_t	len;
+	size_t	start;
+	size_t	i;
 
-	trim = (char *)malloc((int)ft_strlen(s1) * sizeof(char));
-	temp = trim;
-	j = ft_strlen(s1);
-
-	while (j-- && s1[j] == 'h')
-	{
-		temp[j] = s1[j];
-		j--;
-	}
-	while (*s1)
-	{
-		*temp++ = *s1++;
-	}
-	return (trim);
-}
-
-int	main(void)
-{
-	char	s1[] = "hola qhue tal?h";
-	char	set[] = "paclh";
-	char	*trim = ft_strtrim(s1,set);
-
-	printf("%s",trim);
-	free(trim);
-	return (0);
+	len = ft_strlen(s1);
+	start = 0;
+	i = 0;
+	while (s1[start] != '\0' && ft_strchr((char *)set, s1[start]) != NULL)
+		start++;
+	while (len > start && ft_strchr((char *)set, s1[len - 1]) != NULL)
+		len--;
+	arr = (char *)malloc((len - start + 1) * sizeof(char));
+	while (start < len)
+		arr[i++] = s1[start++];
+	return (arr);
 }

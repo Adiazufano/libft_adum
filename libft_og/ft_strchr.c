@@ -6,19 +6,19 @@
 /*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 08:33:43 by aldiaz-u          #+#    #+#             */
-/*   Updated: 2025/04/09 17:14:32 by aldiaz-u         ###   ########.fr       */
+/*   Updated: 2025/04/11 13:48:47 by aldiaz-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s)
+	while (*s || (char)c == '\0')
 	{
-		if (*s == c)
+		if (*s == (char) c)
 		{
 			return ((char *)s);
 		}
 		s++;
 	}
-	return ("\0");
+	return (0);
 }

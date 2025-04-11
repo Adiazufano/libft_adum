@@ -6,7 +6,7 @@
 /*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 13:12:40 by aldiaz-u          #+#    #+#             */
-/*   Updated: 2025/04/09 16:29:53 by aldiaz-u         ###   ########.fr       */
+/*   Updated: 2025/04/11 17:02:38 by aldiaz-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,11 @@ void	*ft_calloc(size_t nmaeb, size_t size)
 	unsigned char	*array;
 	size_t			i;
 
-	array = (unsigned char *)malloc(nmaeb * size);
+	if (size != 0 && nmaeb >= __SIZE_MAX__ / size)
+		return (NULL);
+	array = malloc(nmaeb * size);
+	if (!array)
+		return (NULL);
 	i = 0;
 	while (i < nmaeb * size)
 	{

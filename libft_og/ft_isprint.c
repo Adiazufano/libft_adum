@@ -6,14 +6,13 @@
 /*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 12:02:10 by aldiaz-u          #+#    #+#             */
-/*   Updated: 2025/04/09 08:51:17 by aldiaz-u         ###   ########.fr       */
+/*   Updated: 2025/04/11 14:25:17 by aldiaz-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isprint(int c)
 {
-	if (c >= 33 && c <= 126)
+	if (c >= 32 && c <= 126)
 		return (16384);
-	else
-		return (0);
+	return (0);
 }
