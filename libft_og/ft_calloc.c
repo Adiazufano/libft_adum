@@ -6,7 +6,7 @@
 /*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 13:12:40 by aldiaz-u          #+#    #+#             */
-/*   Updated: 2025/04/11 17:02:38 by aldiaz-u         ###   ########.fr       */
+/*   Updated: 2025/04/13 14:55:05 by aldiaz-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ void	*ft_calloc(size_t nmaeb, size_t size)
 	i = 0;
 	while (i < nmaeb * size)
 	{
-		array[i] = '\0';
-		i++;
+		array[i++] = '\0';
 	}
 	return (array);
 }

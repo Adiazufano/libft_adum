@@ -6,7 +6,7 @@
 /*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 12:27:50 by aldiaz-u          #+#    #+#             */
-/*   Updated: 2025/04/09 17:00:05 by aldiaz-u         ###   ########.fr       */
+/*   Updated: 2025/04/13 15:06:02 by aldiaz-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ void	*ft_memset(void *s, int c, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		ptr[i] = (unsigned char)c;
-		i++;
+		ptr[i++] = (unsigned char)c;
 	}
 	return (s);
 }

@@ -6,7 +6,7 @@
 /*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 17:08:00 by aldiaz-u          #+#    #+#             */
-/*   Updated: 2025/04/09 17:37:01 by aldiaz-u         ###   ########.fr       */
+/*   Updated: 2025/04/13 11:09:51 by aldiaz-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,9 @@
 
 size_t	ft_strlcpy(char *dest, char *src, size_t size)
 {
-	size_t	l;
 	size_t	i;
 
 	i = 0;
-	l = 0;
-	while (src[l])
-		l++;
 	if (size > 0)
 	{
 		while (i < size - 1 && src[i])
@@ -30,5 +26,5 @@ size_t	ft_strlcpy(char *dest, char *src, size_t size)
 		}
 		dest[i] = '\0';
 	}
-	return (l);
+	return (ft_strlen(src));
 }

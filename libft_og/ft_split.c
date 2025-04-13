@@ -6,31 +6,51 @@
 /*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 17:03:47 by aldiaz-u          #+#    #+#             */
-/*   Updated: 2025/04/11 17:54:58 by aldiaz-u         ###   ########.fr       */
+/*   Updated: 2025/04/12 10:09:36 by aldiaz-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_split(char const *s, char c)
+int	total_words(char const *s1, char c)
 {
-	int		i;
-	int		ca;
-	char	**filas;
-	char	*columnas;
+	int	cont;
 
-	ca = 0;
-	i = 0;
-	while (s[i] != c)
+	cont = 0;
+	while (*s1)
 	{
-		if (s[i] == c)
-		i++;
+		if (*(s1 + 1) == c || *(s1 + 1) == '\0' )
+			cont++;
+		s1++;
 	}
-	printf("%i",i);
-	return(0);
+	return (cont);
 }
-int	main()
+
+char	**ft_split(char const *s1, char c)
 {
-	ft_split("hola que tal ?", ' ');
-	return (0);
+	int		start;
+	int		index;
+	int		columns;
+	int		end;
+	char	**array;
+
+	array = malloc((total_words(s1, c) + 1) * sizeof(char *));
+	if (!array)
+		return (NULL);
+	index = 0;
+	columns = 0;
+	while (s1[index])
+	{
+		if (index == 0 || s1[index - 1] == c)
+			start = index;
+		if ((s1[index + 1] == c || s1[index + 1] == '\0') && s1[index] != c)
+		{
+			end = index;
+			array[columns] = ft_substr(s1, start, end - start + 1);
+			columns++;
+		}
+		index++;
+	}
+	array[columns] = NULL;
+	return (array);
 }
