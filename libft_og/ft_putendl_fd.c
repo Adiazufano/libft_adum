@@ -6,13 +6,13 @@
 /*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 14:18:48 by aldiaz-u          #+#    #+#             */
-/*   Updated: 2025/04/13 15:07:16 by aldiaz-u         ###   ########.fr       */
+/*   Updated: 2025/04/15 17:32:41 by aldiaz-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_f(char *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
 	ft_putstr_fd(s, fd);
 	write (fd, "\n", 1);

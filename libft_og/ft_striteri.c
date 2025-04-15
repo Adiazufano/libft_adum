@@ -6,7 +6,7 @@
 /*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 13:30:05 by aldiaz-u          #+#    #+#             */
-/*   Updated: 2025/04/13 12:08:55 by aldiaz-u         ###   ########.fr       */
+/*   Updated: 2025/04/15 16:55:33 by aldiaz-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	while (s[i])
 	{
 		f(i, &s[i]);
-		s++;
+		i++;
 	}
 }

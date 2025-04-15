@@ -6,38 +6,38 @@
 /*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 10:25:11 by aldiaz-u          #+#    #+#             */
-/*   Updated: 2025/04/12 12:28:54 by aldiaz-u         ###   ########.fr       */
+/*   Updated: 2025/04/15 16:29:52 by aldiaz-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count_digits(int n)
+int	count_digits(long nb)
 {
 	int	cont;
 
 	cont = 1;
-	if (n < 0)
+	if (nb < 0)
 	{
-		n = -n;
+		nb = -nb;
 		cont++;
 	}
-	while (n >= 10)
+	while (nb >= 10)
 	{
-		n /= 10;
+		nb /= 10;
 		cont++;
 	}
 	return (cont);
 }
 
-void	int_to_arr(char *nums, int n, int cont, int neg)
+void	int_to_arr(char *nums, long nb, int cont, int neg)
 {
 	if (neg)
 		nums[0] = '-';
-	while (n)
+	while (nb)
 	{
-		nums[--cont] = (n % 10) + '0';
-		n /= 10;
+		nums[--cont] = (nb % 10) + '0';
+		nb /= 10;
 	}
 }
 
@@ -46,19 +46,22 @@ char	*ft_itoa(int n)
 	int		cont;
 	char	*nums;
 	int		neg;
+	long	nb;
 
-	if (n == 0)
+	nb = (long)n;
+	if (nb == 0)
 		return (ft_strdup("0"));
 	neg = 0;
-	cont = count_digits(n);
-	if (n < 0)
+	cont = count_digits(nb);
+	if (nb < 0)
 	{
 		neg = 1;
-		n = -n;
+		nb = -nb;
 	}
 	nums = malloc((cont + 1));
 	if (!nums)
 		return (NULL);
-	int_to_arr(nums, n, cont, neg);
+	nums[cont] = '\0';
+	int_to_arr(nums, nb, cont, neg);
 	return (nums);
 }

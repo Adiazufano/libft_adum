@@ -6,51 +6,82 @@
 /*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 17:03:47 by aldiaz-u          #+#    #+#             */
-/*   Updated: 2025/04/12 10:09:36 by aldiaz-u         ###   ########.fr       */
+/*   Updated: 2025/04/15 16:20:09 by aldiaz-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	total_words(char const *s1, char c)
+static int	total_words(char const *s, char c)
 {
-	int	cont;
+	size_t	count;
+	size_t	in_word;
 
-	cont = 0;
-	while (*s1)
+	count = 0;
+	in_word = 0;
+	while (*s)
 	{
-		if (*(s1 + 1) == c || *(s1 + 1) == '\0' )
-			cont++;
-		s1++;
+		if (*s == c)
+			in_word = 0;
+		else if (in_word == 0)
+		{
+			in_word = 1;
+			count++;
+		}
+		s++;
 	}
-	return (cont);
+	return (count);
 }
 
-char	**ft_split(char const *s1, char c)
+static char	**free_array(char **res, size_t j)
 {
-	int		start;
-	int		index;
-	int		columns;
-	int		end;
-	char	**array;
-
-	array = malloc((total_words(s1, c) + 1) * sizeof(char *));
-	if (!array)
-		return (NULL);
-	index = 0;
-	columns = 0;
-	while (s1[index])
+	while (j > 0)
 	{
-		if (index == 0 || s1[index - 1] == c)
-			start = index;
-		if ((s1[index + 1] == c || s1[index + 1] == '\0') && s1[index] != c)
-		{
-			end = index;
-			array[columns] = ft_substr(s1, start, end - start + 1);
-			columns++;
-		}
-		index++;
+		free(res[--j]);
 	}
-	array[columns] = NULL;
-	return (array);
+	free(res);
+	return (NULL);
+}
+
+static void	fill_result(char const *s, char c, char **res)
+{
+	size_t	i;
+	size_t	start;
+	size_t	j;
+
+	i = 0;
+	j = 0;
+	while (s[i])
+	{
+		if (s[i] != c)
+		{
+			start = i;
+			while (s[i] && s[i] != c)
+				i++;
+			res[j++] = ft_substr(s, start, i - start);
+			if (!res[j - 1])
+			{
+				free_array(res, j);
+				return ;
+			}
+		}
+		else
+			i++;
+	}
+	res[j] = NULL;
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**result;
+	size_t	num_words;
+
+	if (!s)
+		return (NULL);
+	num_words = total_words(s, c);
+	result = (char **)malloc(sizeof(char *) * (num_words + 1));
+	if (!result)
+		return (NULL);
+	fill_result(s, c, result);
+	return (result);
 }

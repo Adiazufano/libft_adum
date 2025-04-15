@@ -6,7 +6,7 @@
 /*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 09:34:59 by aldiaz-u          #+#    #+#             */
-/*   Updated: 2025/04/13 13:54:17 by aldiaz-u         ###   ########.fr       */
+/*   Updated: 2025/04/15 14:28:48 by aldiaz-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	arr = (char *)malloc((len - start + 1) * sizeof(char));
 	while (start < len)
 		arr[i++] = s1[start++];
+	arr[i] = '\0';
 	return (arr);
 }

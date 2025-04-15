@@ -6,7 +6,7 @@
 /*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 18:01:16 by aldiaz-u          #+#    #+#             */
-/*   Updated: 2025/04/12 15:09:54 by aldiaz-u         ###   ########.fr       */
+/*   Updated: 2025/04/15 17:31:17 by aldiaz-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ char			*ft_itoa(int n);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char *s, int fd);
-void			ft_putendl_f(char *s, int fd);
+void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
+void			ft_striteri(char *s, void (*f)(unsigned int, char*));
 #endif

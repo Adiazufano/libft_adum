@@ -6,7 +6,7 @@
 /*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 16:30:49 by aldiaz-u          #+#    #+#             */
-/*   Updated: 2025/04/10 08:33:29 by aldiaz-u         ###   ########.fr       */
+/*   Updated: 2025/04/15 09:35:47 by aldiaz-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strdup(const char *s)
 	i = 0;
 	if (!array)
 		return (NULL);
-	while (i < len)
+	while (s[i])
 	{
 		array[i] = s[i];
 		i++;
