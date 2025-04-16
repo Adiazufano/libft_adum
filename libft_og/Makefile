@@ -33,7 +33,13 @@ SRC = ft_atoi.c \
 	ft_putchar_fd.c \
 	ft_putstr_fd.c \
 	ft_putendl_fd.c \
-	ft_putnbr_fd.c 
+	ft_putnbr_fd.c \
+	ft_lsadd_front.c \
+	ft_lsadd_back.c \
+	ft_lstlast.c \
+	ft_lastnew.c \
+	ft_lstsize.c \
+	ft_lstclear.c \
 
 OBJ = $(SRC:.c=.o)
 NAME = libft.a
