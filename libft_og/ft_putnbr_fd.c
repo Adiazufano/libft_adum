@@ -6,7 +6,7 @@
 /*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 14:29:21 by aldiaz-u          #+#    #+#             */
-/*   Updated: 2025/04/13 15:07:49 by aldiaz-u         ###   ########.fr       */
+/*   Updated: 2025/04/16 20:23:44 by aldiaz-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_putnbr_fd(int n, int fd)
 	if (n < 0)
 	{
 		n = -n;
-		write (1, "-", 1);
+		write (fd, "-", 1);
 	}
 	if (n >= 10)
 	{

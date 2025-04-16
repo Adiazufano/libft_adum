@@ -34,14 +34,16 @@ SRC = ft_atoi.c \
 	ft_putstr_fd.c \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c \
-	ft_lsadd_front.c \
-	ft_lsadd_back.c \
+
+BONUS_SRC = ft_lsadd_front.c \
+	ft_lstadd_back.c \
 	ft_lstlast.c \
-	ft_lastnew.c \
+	ft_lstnew.c \
 	ft_lstsize.c \
 	ft_lstclear.c \
-
+	
 OBJ = $(SRC:.c=.o)
+BONUS_OBJ = $(BONUS_SRC:.c=.o)
 NAME = libft.a
 AR = ar rcs
 
@@ -49,6 +51,9 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(AR) $(NAME) $(OBJ)
+
+bonus : $(BONUS_OBJ)
+	$(AR) $(NAME) $(BONUS_OBJ)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -60,3 +65,5 @@ fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re bonus

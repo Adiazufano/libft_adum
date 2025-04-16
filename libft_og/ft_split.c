@@ -6,7 +6,7 @@
 /*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 17:03:47 by aldiaz-u          #+#    #+#             */
-/*   Updated: 2025/04/15 16:20:09 by aldiaz-u         ###   ########.fr       */
+/*   Updated: 2025/04/16 20:49:19 by aldiaz-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,17 +58,18 @@ static void	fill_result(char const *s, char c, char **res)
 			start = i;
 			while (s[i] && s[i] != c)
 				i++;
-			res[j++] = ft_substr(s, start, i - start);
-			if (!res[j - 1])
+			res[j] = ft_substr(s, start, i - start);
+			if (!res[j])
 			{
 				free_array(res, j);
 				return ;
 			}
+			j++;
 		}
 		else
 			i++;
 	}
-	res[j] = NULL;
+	res[j] = '\0';
 }
 
 char	**ft_split(char const *s, char c)
@@ -85,3 +86,35 @@ char	**ft_split(char const *s, char c)
 	fill_result(s, c, result);
 	return (result);
 }
+
+// int main(void)
+// {
+//     // Cadena de prueba
+//     char *str = "  hola  mundo  esto   es   un   test  ";
+
+//     // Llamada a la función ft_split para dividir la cadena por espacios
+//     char **result = ft_split(str, ' ');
+
+//     // Verificación del resultado
+//     if (!result)
+//     {
+//         printf("Error: No se pudo dividir la cadena.\n");
+//         return (1);
+//     }
+
+//     // Imprimir los resultados
+//     printf("Resultados de ft_split:\n");
+//     for (int i = 0; result[i] != NULL; i++)
+//     {
+//         printf("[%s]\n", result[i]);
+//     }
+
+//     // Liberar la memoria
+//     for (int i = 0; result[i] != NULL; i++)
+//     {
+//         free(result[i]);
+//     }
+//     free(result);
+
+//     return 0;
+// }

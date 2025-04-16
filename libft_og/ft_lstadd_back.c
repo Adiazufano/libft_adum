@@ -6,7 +6,7 @@
 /*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 13:25:13 by aldiaz-u          #+#    #+#             */
-/*   Updated: 2025/04/16 15:37:22 by aldiaz-u         ###   ########.fr       */
+/*   Updated: 2025/04/16 20:47:52 by aldiaz-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
+	t_list	*last;
+
 	if (*lst == NULL)
 		*lst = new;
 	else
 	{
-		t_list	*last;
 		last = *lst;
 		while (last -> next)
 			last = last -> next;
