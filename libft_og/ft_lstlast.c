@@ -6,17 +6,19 @@
 /*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 12:34:21 by aldiaz-u          #+#    #+#             */
-/*   Updated: 2025/04/16 15:37:14 by aldiaz-u         ###   ########.fr       */
+/*   Updated: 2025/04/17 08:48:05 by aldiaz-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	ft_lstlast(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
+	if (!lst)
+		return (NULL);
 	while (lst -> next)
 		lst = lst -> next;
-	return (*lst);
+	return (lst);
 }
 // int	main(void)
 // {

@@ -6,28 +6,25 @@
 /*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 16:48:11 by aldiaz-u          #+#    #+#             */
-/*   Updated: 2025/04/16 19:22:19 by aldiaz-u         ###   ########.fr       */
+/*   Updated: 2025/04/17 15:03:18 by aldiaz-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// void	ft_lstclear(t_list **lst, void (*del)(void *))
-// {
-// 	t_list *temp;
-// 	temp = lst;
-// 	while (*lst)
-// 	{
-// 		temp = *(lst) -> next;
-// 		ft_lstdelone(*lst,del);
-// 		*lst = temp;
-// 	}
-// 	*lst = NULL;
-// }
-// void	del_int(void *content)
-// {
-//     free(content);  // Libera la memoria reservada para el entero
-// }
+void	ft_lstclear(t_list **lst, void (*del)(void *))
+{
+	t_list	*temp;
+
+	temp = *lst;
+	while (*lst)
+	{
+		temp = (*lst)-> next;
+		ft_lstdelone(*lst, del);
+		*lst = temp;
+	}
+	*lst = NULL;
+}
 
 // int main()
 // {

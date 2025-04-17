@@ -40,7 +40,9 @@ BONUS_SRC = ft_lsadd_front.c \
 	ft_lstlast.c \
 	ft_lstnew.c \
 	ft_lstsize.c \
+	ft_lstdelone.c \
 	ft_lstclear.c \
+	ft_lstiter.c \
 	
 OBJ = $(SRC:.c=.o)
 BONUS_OBJ = $(BONUS_SRC:.c=.o)
