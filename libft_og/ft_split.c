@@ -6,7 +6,7 @@
 /*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 17:03:47 by aldiaz-u          #+#    #+#             */
-/*   Updated: 2025/04/16 20:49:19 by aldiaz-u         ###   ########.fr       */
+/*   Updated: 2025/04/17 21:26:02 by aldiaz-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,33 +43,30 @@ static char	**free_array(char **res, size_t j)
 	return (NULL);
 }
 
-static void	fill_result(char const *s, char c, char **res)
+static int	fill_result(char const *s, char c, char **res)
 {
 	size_t	i;
-	size_t	start;
 	size_t	j;
+	size_t	start;
 
 	i = 0;
 	j = 0;
 	while (s[i])
 	{
-		if (s[i] != c)
+		if (s[i] == c)
+			i++;
+		else
 		{
 			start = i;
 			while (s[i] && s[i] != c)
 				i++;
 			res[j] = ft_substr(s, start, i - start);
-			if (!res[j])
-			{
-				free_array(res, j);
-				return ;
-			}
-			j++;
+			if (!res[j++])
+				return (free_array(res, j - 1), 0);
 		}
-		else
-			i++;
 	}
-	res[j] = '\0';
+	res[j] = NULL;
+	return (1);
 }
 
 char	**ft_split(char const *s, char c)
@@ -83,7 +80,8 @@ char	**ft_split(char const *s, char c)
 	result = (char **)malloc(sizeof(char *) * (num_words + 1));
 	if (!result)
 		return (NULL);
-	fill_result(s, c, result);
+	if (!fill_result(s, c, result))
+		return (NULL);
 	return (result);
 }
 
