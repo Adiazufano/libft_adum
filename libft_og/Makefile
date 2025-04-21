@@ -55,17 +55,17 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(AR) $(NAME) $(OBJ)
 
-bonus : $(BONUS_OBJ)
-	$(AR) $(NAME) $(BONUS_OBJ)
+bonus : $(BONUS_OBJ) $(OBJ)
+	$(AR) $(NAME) $(BONUS_OBJ) $(OBJ)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJ)
+	rm -rf $(OBJ) $(BONUS_OBJ)
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -rf $(NAME) $(BONUS_OBJ)
 
 re: fclean all
 
