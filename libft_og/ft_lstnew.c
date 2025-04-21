@@ -6,14 +6,10 @@
 /*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 10:29:29 by aldiaz-u          #+#    #+#             */
-/*   Updated: 2025/04/17 07:41:20 by aldiaz-u         ###   ########.fr       */
+/*   Updated: 2025/04/21 08:47:13 by aldiaz-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-	Crear  un nodo usando malloc dado el valor de un parametro content
-	a el content del struct y a el next del struct se le pasa un NULL.
-*/
 #include "libft.h"
 
 t_list	*ft_lstnew(void *content)
