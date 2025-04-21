@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lsadd_front_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aldiaz-u <aldiaz-u@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/16 12:17:16 by aldiaz-u          #+#    #+#             */
-/*   Updated: 2025/04/16 20:46:03 by aldiaz-u         ###   ########.fr       */
+/*   Created: 2025/04/16 11:52:38 by aldiaz-u          #+#    #+#             */
+/*   Updated: 2025/04/21 10:12:09 by aldiaz-u         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	int	count;
-
-	count = 0;
-	while (lst)
-	{
-		count++;
-		lst = lst -> next;
-	}
-	return (count);
+	new -> next = *lst;
+	*lst = new;
 }
-
 // int	main(void)
 // {
 // 	t_list *list = ft_lstnew("Hola Mundo");
@@ -44,5 +36,4 @@ int	ft_lstsize(t_list *lst)
 // 		printf("%s\n",(char *)current -> content);
 // 		current = current -> next;
 // 	}
-// 	printf("%i",ft_lstsize(list));
 // }
